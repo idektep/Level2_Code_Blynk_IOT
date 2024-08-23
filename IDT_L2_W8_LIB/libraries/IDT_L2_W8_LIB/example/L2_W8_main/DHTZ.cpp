@@ -48,10 +48,14 @@ void DHTZ::DHTZAdjustAlarm(int temp_alarm)
 
 void DHTZ::DHTZAlarmCheck()
 {
-
+    DHTZReadTemp();
     if (t >= Temp_alarm_val)
     {
-        // buzzer_d.Alarm_Beep();
-        delay(100);
+        Serial.println("Buzzer On");
+        buzzer_d.Alarm_Beep();
+        delay(500);
+    }
+    else {
+        Serial.println("Buzzer Off");
     }
 }
